@@ -3,14 +3,15 @@
 @section('title','Cursos create')
 
 @section('content')
-<h1>Creación de pokemon</h1>
+<br>
+<strong>Nuevo pokemon</strong><br>
 
 <form action="{{route('cursos.store')}}" method="post">
 
     @csrf 
 
     <label for="">
-        Nombre:
+        Nombre
         <br>
         <input type="text" name=name value="{{old('name')}}">
     </label>
@@ -23,8 +24,8 @@
 
     <br>
     <label for="">
-        Descripcion:
-        <br><br>
+        Descripcion
+        <br>
         <textarea name="descripcion" id="" cols="0" rows="3">{{old('descripcion')}}</textarea>
     </label>
 
@@ -36,15 +37,41 @@
 
     <br><br>
     <label for="">
-        Categoria:
+        Tipo de pokemon
         <br><br>
-        <input type="text" name=categoria value="{{old('categoria')}}">
+        <input type="text" name=categoria value="{{old('tipo_poke')}}">
     </label>
 
-    @error('categoria')
+    @error('tipo_poke')
     <br>
     <small>*{{$message}}</small>
     <br>
+    @enderror
+    <br><br>
+
+    <label for="">
+        Región
+        <br>
+        <input type="text" name=name value="{{old('region')}}">
+    </label>
+
+    @error('region')
+        <br>
+        <small>*{{$message}}</small>
+        <br>
+    @enderror
+    <br><br>
+
+    <label for="">
+        Genero
+        <br>
+        <input type="text" name=name value="{{old('genero')}}">
+    </label>
+
+    @error('genero')
+        <br>
+        <small>*{{$message}}</small>
+        <br>
     @enderror
     <br><br>
 
