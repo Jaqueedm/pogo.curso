@@ -4,7 +4,6 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CursosController;
 
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -22,19 +21,15 @@ Route::get('cursos', [CursosController::class,'index'])->name('cursos.index');
 
 Route::post('cursos', [CursosController::class,'store'])->name('cursos.store');
 
-Route::get('cursos/{id}', [CursosController::class, 'show'])->name('cursos.show');
-
-Route::middleware(['auth', 'second'])->group(function () {
-
 Route::get('cursos/create', [CursosController::class, 'create'])->name('cursos.create');
+
+Route::get('cursos/{curso}', [CursosController::class, 'show'])->name('cursos.show');
 
 Route::get('cursos/{curso}/edit', [CursosController::class, 'edit'])->name('cursos.edit');
 
 Route::put('cursos/{curso}', [CursosController::class, 'update'])->name('cursos.update');
 
-Route::delete('cursos/{curso}', [CursosController::class, 'destroy'])->name('cursos.destroy'); 
-    
-});
+Route::delete('cursos/{curso}', [CursosController::class, 'destroy'])->name('cursos.destroy');
 
 //Route::resource('cursos', CursosController::class);
 //->names('cursos')->parameters(['pogos' => 'cursos']);
@@ -55,5 +50,4 @@ require __DIR__.'/auth.php';
 
 Route::get('prueba', function () {
     return "exito";
-})->middleware('auth','age');
-
+})->middleware('auth', 'age');
