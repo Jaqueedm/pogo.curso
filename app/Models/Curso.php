@@ -12,7 +12,7 @@ class Curso extends Model
 
     //protected $table = "users"; Probar si se quiere administrar la tabla users desde la convencion curso 
     //protected $fillable = ['name','descripcion','categoria'];
-    protected $guarded = []; //status
+    protected $guarded = ['status']; //status
     
     public function getRouteKeyName()
     {
