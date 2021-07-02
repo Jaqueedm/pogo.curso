@@ -3,7 +3,7 @@
 @section('title','Cursos edit')
 
 @section('content')
-<h1>En esta pagina podras editar un curso</h1>
+<h1>Editar poke</h1><br>
 
 <form action="{{route('cursos.update', $curso)}}" method="post">
 
@@ -12,7 +12,7 @@
     @method('put')
 
     <label for="">
-        Nombre:
+        Nombre
         <br>
         <input type="text" name=name value="{{old('name', $curso->name)}}">
     </label>
@@ -25,7 +25,7 @@
 
     <br>
     <label for="">
-        Descripcion:
+        Descripcion
         <br>
         <textarea name="descripcion" id=""  rows="3">{{old('descripcion', $curso->descripcion)}}</textarea>
     </label>
@@ -36,17 +36,43 @@
     <br>
     @enderror
 
-    <br>
+    <br><br>
     <label for="">
-        Categoria:
+        Tipo de pokemon
         <br>
-        <input type="text" name=categoria value="{{old('categoria', $curso->categoria)}}">
+        <input type="text" name=categoria value="{{old('tipo_poke')}}">
     </label>
 
-    @error('categoria')
+    @error('tipo_poke')
     <br>
     <small>*{{$message}}</small>
     <br>
+    @enderror
+    <br><br>
+
+    <label for="">
+        Región
+        <br>
+        <input type="text" name=name value="{{old('region')}}">
+    </label>
+
+    @error('region')
+        <br>
+        <small>*{{$message}}</small>
+        <br>
+    @enderror
+    <br><br>
+
+    <label for="">
+        Género
+        <br>
+        <input type="text" name=name value="{{old('genero')}}">
+    </label>
+
+    @error('genero')
+        <br>
+        <small>*{{$message}}</small>
+        <br>
     @enderror
     <br><br>
     <button type="submit" class="btn btn-primary">cambiar</button>
