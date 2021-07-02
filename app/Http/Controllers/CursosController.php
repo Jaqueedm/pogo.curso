@@ -38,7 +38,7 @@ class CursosController extends Controller
         return view('cursos.show', compact('curso'));
     }
 
-    public function edit(curso $curso)
+    public function edit(Curso $curso)
     {
         return view('cursos.edit', compact('curso'));
     }
@@ -48,7 +48,7 @@ class CursosController extends Controller
         $request->validate([
             'name' => 'required',
             'descripcion' => 'required',
-            'categoria' => 'required'
+            'tipo' => 'required'
 
         ]);
         
