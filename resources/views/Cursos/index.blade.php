@@ -16,7 +16,8 @@
          
                 <div class="pinWrapper">
                     <a href="{{route('cursos.show', $curso)}}">{{$curso->name}}</a>
-                    <p class="card-text">{{$curso->descripcion}}</p> 
+                    {{-- {{dd($curso, $curso->id)}} --}}
+                    <p class="card-text">{{$curso->tipo_poke}}</p> 
                 </div>
         
             </div>
