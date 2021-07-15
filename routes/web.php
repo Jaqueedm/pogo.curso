@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\CursosController;
+use App\Http\Controllers\PokemonesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,19 +17,19 @@ use App\Http\Controllers\CursosController;
 
 Route::get('/', HomeController::class)->name('home');
 
-Route::get('cursos', [CursosController::class,'index'])->name('cursos.index');
+Route::get('pokemones', [PokemonesController::class,'index'])->name('pokemones.index');
 
-Route::post('cursos', [CursosController::class,'store'])->name('cursos.store');
+Route::post('pokemones', [PokemonesController::class,'store'])->name('pokemones.store');
 
-Route::get('cursos/create', [CursosController::class, 'create'])->name('cursos.create');
+Route::get('pokemones/create', [PokemonesController::class, 'create'])->name('pokemones.create');
 
-Route::get('cursos/{curso}', [CursosController::class, 'show'])->name('cursos.show');
+Route::get('pokemones/{pokemon}', [PokemonesController::class, 'show'])->name('pokemones.show');
 
-Route::get('cursos/{curso}/edit', [CursosController::class, 'edit'])->name('cursos.edit');
+Route::get('pokemones/{pokemon}/edit', [PokemonesController::class, 'edit'])->name('pokemones.edit');
 
-Route::put('cursos/{curso}', [CursosController::class, 'update'])->name('cursos.update');
+Route::put('pokemones/{pokemon}', [PokemonesController::class, 'update'])->name('pokemones.update');
 
-Route::delete('cursos/{curso}', [CursosController::class, 'destroy'])->name('cursos.destroy');
+Route::delete('pokemones/{pokemon}', [PokemonesController::class, 'destroy'])->name('pokemones.destroy');
 
 //Route::resource('cursos', CursosController::class);
 //->names('cursos')->parameters(['pogos' => 'cursos']);

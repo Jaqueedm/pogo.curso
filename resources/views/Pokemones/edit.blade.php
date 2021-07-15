@@ -27,7 +27,7 @@
     <label for="" method="POST">Subir imagen
         @csrf
         <br>
-        <input type="file" name="file" id="" accept="image/*">
+        <input type="file" name="file" id="" accept="image/*" value="{{old('file', $pokemon->url)}}">
         
     </label>
     

@@ -17,7 +17,7 @@ class Pokemones extends Migration
         Schema::create('pokemones', function (Blueprint $table) {
             $table->id() ;
             $table->string('name', 50);
-            //$table->string('url');
+            $table->string('url')->nullable();
             $table->string('slug');
             $table->text('descripcion');
             $table->text('tipo_poke');

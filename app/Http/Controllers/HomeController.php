@@ -7,9 +7,13 @@ use Illuminate\Http\Request;
 //se creo una clase donde se podra hacer una serie de metodos
 class HomeController extends Controller
 {
-    public function __invoke(){
-           // return view('welcome');
-            return view('home');
+    // public function __construct()
+    // {
+    //     $this->middleware('auth');
+    // }
+    public function __invoke()
+    {
+        return view('welcome');
+        //return view('home');
     }
-    
 }

@@ -10,11 +10,11 @@
 <a href="{{route('pokemones.create')}}" class="btn btn-outline-primary">Registar un nuevo pogo</a>
 
 <ul>
-    <div class="px-3 px-lg-4 px-xl-5 pt-3">
+    <div class="px-3 px-lg-4 px-xl-3 pt-2">
         <div class="card-columns">
     @foreach ($pokemones as $pokemon)
     <div class="card" style="width: 18rem;">
-        {{-- <img src="{{url($pokemon->imagen)}}" class="card-img-top" width="210" height="270" alt="Pokemon"> --}}
+        <img src="{{asset($pokemon->url)}}" class="card-img-top" width="210" height="270" alt="Pokemon">
         <div class="card-body">
           <h5 class="card-title">{{$pokemon->name}} </h5>
           <b><p class="card-text">Tipo:</b> {{$pokemon->tipo_poke}}</p>

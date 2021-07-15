@@ -15,7 +15,7 @@ class PokemonesController extends Controller
     public function index()
     {
         //usamos la variable curso y mandamos a llamar el modelo curso
-        $pokemones = Pokemone::orderBy('id', 'desc')->paginate();
+        $pokemones = Pokemone::orderBy('id', 'desc')->paginate(15);
 
         //return "Bienvenido a la pagina principal de cursos"; esta es otra forma de mostrar al usua
         return view('pokemones.index', compact('pokemones'));
@@ -26,31 +26,19 @@ class PokemonesController extends Controller
         return view('pokemones.create');
     }
 
-    public function store(StorePokemon $request)
+    public function store(StorePokemon $request, Pokemone $pokemon)
     {
-        $pokemon = new Pokemone();
-
-        $n1 = $pokemon->name = $request->name;
-        $n6 = $pokemon->imagen =$request ->file('file')->store('public/imagenes');
-        $url = Storage::url($n6);
-        
-        $n2 = $pokemon->descripcion = $request->descripcion;
-        $n3 = $pokemon->tipo_poke = $request->tipo_poke;
-        $n4 = $pokemon->genero = $request->genero;
-
-        $n5 = $pokemon->slug = Str::slug($request->name, '-');
-
-        $n7 = $pokemon->region = $request->region;
-
+        $p1=$pokemon->imagen = $request->file('file')->store('public/imagenes');
+        $url = Storage::url($p1);
 
         $pokemon = Pokemone::create([
-            'name' => $n1,
-            'imagen' =>$url,
-            'descripcion' => $n2,
-            'tipo_poke' => $n3,
-            'genero' => $n4,
-            'slug' => $n5,
-            'region' => $n7
+            'name' => $pokemon->name = $request->name,
+            'url' =>$url,
+            'descripcion' =>   $pokemon->descripcion = $request->descripcion,
+            'tipo_poke' => $pokemon->tipo_poke = $request->tipo_poke,
+            'genero' => $pokemon->genero = $request->genero,
+            'slug' =>  $pokemon->slug = Str::slug($request->name, '-'),
+            'region' => $pokemon->region = $request->region
         ]);
         return redirect()->route('pokemones.show', $pokemon);
     }

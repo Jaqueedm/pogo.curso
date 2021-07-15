@@ -67,7 +67,7 @@
             <x-responsive-nav-link :href="route('home')" :active="request()->routeIs('home')">
                 {{ __('Inicio') }}
             </x-responsive-nav-link>
-            <x-responsive-nav-link :href="route('cursos.index')" :active="request()->routeIs('cursos.index')">
+            <x-responsive-nav-link :href="route('pokemones.index')" :active="request()->routeIs('pokemones.index')">
                 {{ __('Pokedex') }}
             </x-responsive-nav-link>
         </div>

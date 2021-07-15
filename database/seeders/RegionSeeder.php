@@ -32,5 +32,6 @@ class RegionSeeder extends Seeder
         $region3-> nombre_r='Hoenn';
 
         $region3->save();
+
     }
 }
