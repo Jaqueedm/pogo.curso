@@ -37,7 +37,7 @@ class RegionesController extends Controller
 
     public function show(Region $region)
     {
-        $pokemones = Pokemone::all();
+        $pokemones = $region->pokemones;
         return view('regiones.show', compact('pokemones'));
     }
 
