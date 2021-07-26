@@ -19,7 +19,7 @@
             <div>
                 <x-label for="email" :value="__('Email')" />
 
-                <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
+                <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus  placeholder="name@yourcompany.com"/>
             </div>
 
             <!-- Password -->
@@ -29,7 +29,8 @@
                 <x-input id="password" class="block mt-1 w-full"
                                 type="password"
                                 name="password"
-                                required autocomplete="current-password" />
+                                required autocomplete="current-password"
+                                placeholder="Ingresa tu contraseña" />
             </div>
 
             <!-- Remember Me -->
@@ -39,6 +40,8 @@
                     <span class="ml-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
                 </label>
             </div>
+
+            <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline">Registrar</a>
 
             <div class="flex items-center justify-end mt-4">
                 @if (Route::has('password.request'))

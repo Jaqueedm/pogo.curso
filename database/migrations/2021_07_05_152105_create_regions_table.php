@@ -17,6 +17,8 @@ class CreateRegionsTable extends Migration
             $table->id();
             $table->timestamps();
             $table->string('nombre_r', 30);
+            $table->string('slug');
+            $table->text('des_r');
 
         });
     }

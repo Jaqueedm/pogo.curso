@@ -5,12 +5,18 @@ namespace App\Http\Controllers;
 use App\Models\Pokemone;
 use Illuminate\Http\Request;
 use App\Http\Requests\StorePokemon;
+use App\Models\Region;
 use Illuminate\Support\Str;
 
 use Illuminate\Support\Facades\Storage;
 
 class PokemonesController extends Controller
 {
+    //  public function __construct()
+    //  {
+    //       $this->middleware('auth');
+    //  }
+
     //creamos 3 metodos
     public function index()
     {
@@ -23,17 +29,17 @@ class PokemonesController extends Controller
 
     public function create()
     {
-        return view('pokemones.create');
+        $regiones = Region::all();
+        return view('pokemones.create', compact('regiones'));
     }
 
-    public function store(StorePokemon $request, Pokemone $pokemon)
+    public function store(StorePokemon $request, Pokemone $pokemon) 
     {
-        $p1=$pokemon->imagen = $request->file('file')->store('public/imagenes');
-        $url = Storage::url($p1);
+        $imagen = $request->file('file')->store('public/imagenes'); //metodo
 
         $pokemon = Pokemone::create([
             'name' => $pokemon->name = $request->name,
-            'url' =>$url,
+            'url' =>$imagen = Storage::url($imagen),
             'descripcion' =>   $pokemon->descripcion = $request->descripcion,
             'tipo_poke' => $pokemon->tipo_poke = $request->tipo_poke,
             'genero' => $pokemon->genero = $request->genero,
@@ -45,6 +51,7 @@ class PokemonesController extends Controller
 
     public function show(Pokemone $pokemon)
     {
+        $regiones = Region::all();
         return view('pokemones.show', compact('pokemon'));
     }
     

@@ -1,6 +1,0 @@
-.pinWrapper {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  flex: 0 1 calc(50% - 1em);
-}
