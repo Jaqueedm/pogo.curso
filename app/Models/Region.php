@@ -10,6 +10,6 @@ class Region extends Model
     use HasFactory;
     public function pokemones()
     {
-        return $this->hasMany('App\Models\Pokemone');
+        return $this->hasMany('App\Models\Pokemone', 'region');
     }
 }
