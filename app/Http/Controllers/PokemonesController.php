@@ -21,7 +21,7 @@ class PokemonesController extends Controller
     public function index()
     {
         //usamos la variable curso y mandamos a llamar el modelo curso
-        $pokemones = Pokemone::orderBy('id', 'desc')->paginate(15);
+        $pokemones = Pokemone::orderBy('id', 'desc')->paginate(9);
 
         //return "Bienvenido a la pagina principal de cursos"; esta es otra forma de mostrar al usua
         return view('pokemones.index', compact('pokemones'));
