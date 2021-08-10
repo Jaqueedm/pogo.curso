@@ -6,8 +6,8 @@
 
 @section('content')
 
-Aquí es donde se me van a mostar los pokemones de la respectiva region 
-@if ('{{$region->id}}')
+Pokemones de la region 
+
 <ul>
     <div class="px-3 px-lg-4 px-xl-5 pt-2">
         <div class="card-columns">
@@ -24,9 +24,7 @@ Aquí es donde se me van a mostar los pokemones de la respectiva region
          </div>
     </div>
 </ul>
-@else
-    no hay
-@endif
+
 
 
 @endsection

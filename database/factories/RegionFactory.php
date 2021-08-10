@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\Region;
+use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class RegionFactory extends Factory
@@ -21,8 +22,11 @@ class RegionFactory extends Factory
      */
     public function definition()
     {
+        $nombre_r=$this->faker->name();
         return [
-            'nombre_r'=>$this->faker->name()
+            'nombre_r'=>$this->faker->name(),
+            'slug'=> Str::slug($nombre_r, '-'),
+            'des_r'=>$this->faker->text()
         ];
     }
 }

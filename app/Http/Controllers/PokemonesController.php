@@ -33,7 +33,7 @@ class PokemonesController extends Controller
         return view('pokemones.create', compact('regiones'));
     }
 
-    public function store(StorePokemon $request, Pokemone $pokemon) 
+    public function store(StorePokemon $request, Pokemone $pokemon)
     {
         $imagen = $request->file('file')->store('public/imagenes'); //metodo
 
@@ -46,6 +46,7 @@ class PokemonesController extends Controller
             'slug' =>  $pokemon->slug = Str::slug($request->name, '-'),
             'region' => $pokemon->region = $request->region
         ]);
+        $pokemon->save();
         return redirect()->route('pokemones.show', $pokemon);
     }
 
@@ -60,18 +61,12 @@ class PokemonesController extends Controller
         return view('pokemones.edit', compact('pokemon'));
     }
 
-    public function update(Request $request, Pokemone $pokemon)
-    {
-        $request->validate([
-            'name' => 'required',
-            'descripcion' => 'required',
-            'tipo_poke' => 'required',
-            'region' => 'required',
-            'genero' => 'required'
-
-        ]);
-        
+    public function update(StorePokemon $request, Pokemone $pokemon)
+    { 
+        $imagen = $request->file('file')->store('public/imagenes'); 
+    
         $pokemon->name = $request->name;
+        $pokemon->url = $imagen = Storage::url($imagen);
         $pokemon->descripcion = $request->descripcion;
         $pokemon->tipo_poke = $request->tipo_poke;
         $pokemon->region = $request->region;
@@ -81,7 +76,7 @@ class PokemonesController extends Controller
 
         $pokemon->save();
 
-        $pokemon->update($request->all()); //asignacion masiva
+        $pokemon->update($request->all()); //as ignacion masiva
         return redirect()->route('pokemones.show', $pokemon);
     }
 

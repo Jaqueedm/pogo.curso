@@ -35,8 +35,8 @@ class StorePokemon extends FormRequest
     public function attributes()
     {
         return [
-            'name' => 'nombre del Pokémon',
-            'descripcion'=>'descripcion del Pokémon',
+            'name' => 'nombre del pokémon',
+            'descripcion'=>'descripcion del pokémon',
         ];
     }
 
@@ -44,7 +44,9 @@ class StorePokemon extends FormRequest
     {
         return [
             //'categoria.required'=> 'Ingrsa la categoria del curso'
-            'file.required'=> 'La imagen del pokémon es obligatorio'
+            'name.required'=> 'El nombre del pokémon es obligatorio',
+            'file.required'=> 'La imagen del pokémon es obligatorio',
+            'tipo_poke.required' => 'Ingresa si es tipo "Agua", "Fuego", etc.'
         ];
     }
 }
